@@ -1,6 +1,9 @@
 # Project Outline
 
 Vagrant enviroment setup
+
+# Reminder: Update the project outline
+
 # Vagrantfile 
  
  # VPC 
@@ -27,9 +30,8 @@ Vagrant enviroment setup
   - dev server
   
  # Load balance
- #AMI
+ # AMI
  # ASG 
- 
  # Route53
  
- # Reminder: Update the project outline
+ 
