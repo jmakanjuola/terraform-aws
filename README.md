@@ -1,6 +1,4 @@
-# Project Outline
-
-Vagrant enviroment setup
+# Project Outline: Vagrant enviroment setup
 
 # Reminder: Update the project outline
 
