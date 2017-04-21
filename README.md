@@ -20,6 +20,8 @@
   
  #Internet-Gateway
  
+ # RDS 
+   
  # s3
   code bucket
   
@@ -27,7 +29,7 @@
   - keypair
   - dev server
   
- # Load balance
+ # ELB
  # AMI
  # ASG 
  # Route53
