@@ -1,6 +1,6 @@
-resource "aws_security_group" "demo-heartflow-pub-sg" {
-  vpc_id = "${aws_vpc.demo-heartflow.id}"
-  name = "demo-heartflow-pub-sg"
+resource "aws_security_group" "demo-abra-pub-sg" {
+  vpc_id = "${aws_vpc.demo-abra.id}"
+  name = "demo-abra-pub-sg"
   description = "Allows ssh ingress & egress traffic"
   ingress {
     from_port = 22
@@ -16,6 +16,6 @@ resource "aws_security_group" "demo-heartflow-pub-sg" {
 }
 
 tags {
-  Name = "demo-heartflow-sg"
+  Name = "demo-abra-sg"
  }
 }
