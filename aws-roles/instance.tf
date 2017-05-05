@@ -1,6 +1,7 @@
 resource "aws_instance" "demo-abra-test" {
     ami = "${lookup(var.amis, var.aws_region)}"
     instance_type = "t2.micro"
+
 tags {
   Name = "test"
 }
