@@ -5,6 +5,9 @@ tags {
   Name = "test"
 } 
 
+tags {
+  Name = "test"
+}
 
 # Public VPC Subnet
 subnet_id = "${aws_subnet.demo-abra-pub-1.id}"
