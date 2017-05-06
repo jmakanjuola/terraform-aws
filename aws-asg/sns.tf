@@ -1,5 +1,3 @@
- Uncomment if you want to have autoscaling notifications
-
 resource "aws_sns_topic" "demo-adobe-sre-team-sns" {
   name         = "sg-sns"
   display_name = "Demo AbobeStock-SRE Team ASG SNS topic"
@@ -11,6 +9,6 @@ resource "aws_autoscaling_notification" "demo-adobe-sre-team-notify" {
   notifications  = [
     "autoscaling:EC2_INSTANCE_LAUNCH",
     "autoscaling:EC2_INSTANCE_TERMINATE",
-    "autoscaling:EC2_INSTANCE_LAUNCH_ERROR", 
+    "autoscaling:EC2_INSTANCE_LAUNCH_ERROR",
   ]
 }
