@@ -1,6 +1,12 @@
+
 output "instance" {
   value = "${aws_instance.demo-adobe-sre-team-test.public_ip}"
 }
+
+output "instance-public-ip" {
+  value = "${aws_instance.demo-abra-test.public_ip}"
+
+
 output "instance-private-ip" {
   value = "${aws_instance.demo-adobe-sre-team-test.private_ip}"
 }
