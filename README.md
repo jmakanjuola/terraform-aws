@@ -1,4 +1,4 @@
-** Project Outline: Vagrant enviroment setup
+* Project Outline: Vagrant enviroment setup
 
 # Reminder: Update the project outline
 
@@ -32,6 +32,6 @@
  * ELB
  * AMI
  * ASG  
- # Route53
+ * Route53
  
  
