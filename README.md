@@ -1,37 +1,37 @@
-# Project Outline: Vagrant enviroment setup
+** Project Outline: Vagrant enviroment setup
 
 # Reminder: Update the project outline
 
-# Vagrantfile 
+* Vagrantfile 
  
- # VPC 
+ * VPC 
  Public route table
   - us-west 2(a-c)
- Private route
+ * Private route
   -
- Subnets Public
+ * Subnets Public
   - us-west-2 (a-c)
  
- Private Subnets
+ * Private Subnets
   - us-west-2(a-c)
   
- # Security Groups:
+ * Security Groups:
   - Public/Private
   
- #Internet-Gateway
+ * Internet-Gateway
  
- # RDS 
+ * RDS 
    
- # s3
+ * s3
   code bucket
   
- # Compute
+ * Compute
   - keypair
   - dev server
   
- # ELB
- # AMI
- # ASG 
+ * ELB
+ * AMI
+ * ASG  
  # Route53
  
  
