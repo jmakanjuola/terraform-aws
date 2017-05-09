@@ -7,6 +7,11 @@ tags {
   Name = "test"
 }
 
+
+tags {
+  Name = "test"
+}
+
 # Public VPC Subnet
 subnet_id = "${aws_subnet.demo-adobe-sre-team-pub-1.id}"
 
