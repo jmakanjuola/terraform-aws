@@ -1,3 +1,4 @@
+
 resource "aws_sns_topic" "demo-adobe-sre-team-sns" {
   name         = "sg-sns"
   display_name = "Demo AbobeStock-SRE Team ASG SNS topic"
@@ -12,3 +13,4 @@ resource "aws_autoscaling_notification" "demo-adobe-sre-team-notify" {
     "autoscaling:EC2_INSTANCE_LAUNCH_ERROR",
   ]
 }
+
