@@ -3,7 +3,9 @@ resource "aws_launch_configuration" "demo-adobe-sre-team-asg-config" {
   image_id                    = "${lookup(var.amis, var.aws_region)}"
   instance_type               = "t2.micro"
   key_name                    = "${aws_key_pair.jubkeypair.key_name}"
-  security_groups             = ["${aws_security_group.demo-adobe-sre-team-elb-sg.id}"]
+  security_groups             = ["${aws_security_group.demo-adobe-sre-team-elb-instance.id}"]
+  user_data                   = "#!/bin/bash\napt-get -y install nginx\nMYIP=`ifconfig | grep 'addr:10' | awk '{ print $2 }' | cut -d ':' -f2`\necho 'this is: '$MYIP > /var/html/index.html"
+  lifecycle                      { create_before_destroy = true }
 }
 
 resource "aws_autoscaling_group" "demo-adobe-sre-team-autoscaling" {
@@ -19,7 +21,7 @@ resource "aws_autoscaling_group" "demo-adobe-sre-team-autoscaling" {
 
   tag {
     key                       = "Name"
-    value                     = "ec2 instance"
+    value                     = "ec2 demo instance"
     propagate_at_launch       = true
   }
 }
