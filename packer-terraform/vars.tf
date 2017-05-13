@@ -7,7 +7,3 @@ variable "path_to_priv_key" {
 variable "path_to_pub_key" {
   default = "jubkey.pub"
 }
-
-#variable "AMI_ID" {
-#  default = "ami-fa27b39a"
-#}
