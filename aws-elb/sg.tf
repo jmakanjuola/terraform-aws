@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 resource "aws_security_group" "demo-adobe-sre-team-elb-instance" {
   vpc_id = "${aws_vpc.demo-adobe-sre-team.id}"
   name = "demo-adobe-sre-team-elb-instance"
@@ -9,12 +10,27 @@ resource "aws_security_group" "demo-adobe-sre-team-elb-instance" {
     cidr_blocks = ["0.0.0.0/0"]
 }
 
+=======
+resource "aws_security_group" "demo-adobe-sre-team-instance" {
+  vpc_id = "${aws_vpc.demo-adobe-sre-team.id}"
+  name = "demo-adobe-sre-team-elb-sg"
+  description = "Allows ssh ingress & egress traffic"
+>>>>>>> packer
   ingress {
     from_port = 22
     to_port = 22
     protocol = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
  }
+<<<<<<< HEAD
+=======
+  egress {
+    from_port = 0
+    to_port = 0
+    protocol = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+}
+>>>>>>> packer
 
  ingress {
    from_port = 80
