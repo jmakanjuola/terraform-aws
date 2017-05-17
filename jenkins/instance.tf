@@ -36,6 +36,7 @@ resource "aws_volume_attachment" "jenkins-data-attachment" {
 
 resource "aws_instance" "app-instance" {
   count = "${var.app_instance_count}"
+  count = "${var.app_instance_count}" 
   ami = "${var.app_instance_ami}"
   instance_type = "t2.micro"
 
