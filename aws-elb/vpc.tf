@@ -91,8 +91,13 @@ resource "aws_route_table" "demo-adobe-sre-team-pub" {
     tags {
         Name = "demo-adobe-sre-team-pub-1"
     }
+<<<<<<< HEAD
+  
+}
+=======
 }
 
+>>>>>>> packer
 # route associations public
 resource "aws_route_table_association" "demo-adobe-sre-team-pub-1-a" {
     subnet_id = "${aws_subnet.demo-adobe-sre-team-pub-1.id}"
