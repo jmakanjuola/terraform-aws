@@ -29,14 +29,15 @@ resource "aws_ebs_volume" "jenkins-data" {
 }
 
 resource "aws_volume_attachment" "jenkins-data-attachment" {
-  device_name = "${var.INSTANCE_DEVICE_NAME}"
+  device_name = "${var.instance_device_name}"
   volume_id = "${aws_ebs_volume.jenkins-data.id}"
   instance_id = "${aws_instance.jenkins-instance.id}"
 }
 
 resource "aws_instance" "app-instance" {
-  count = "${var.APP_INSTANCE_COUNT}"
-  ami = "${var.APP_INSTANCE_AMI}"
+  count = "${var.variable "app_instance_count" {
+}"
+  ami = "${var.app_instance_ami}"
   instance_type = "t2.micro"
 
   # the VPC subnet
