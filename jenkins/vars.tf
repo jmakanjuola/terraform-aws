@@ -18,13 +18,13 @@ variable "amis" {
     ap-northeast-1 = "ami-afb09dc8"
   }
 }
-variable "INSTANCE_DEVICE_NAME" {
+variable "instance_device_name" {
   default = "/dev/xvdh"
 }
 variable "JENKINS_VERSION" {
   default = "2.32.1"
 }
 
-variable "APP_INSTANCE_COUNT" {
+variable "app_instance_count" {
   default = "0"
 }
