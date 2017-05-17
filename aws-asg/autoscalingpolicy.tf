@@ -1,6 +1,6 @@
-resource "aws_autoscaling_policy" "demo-adobe-sre-team-cpu-policy" {
-    name                          = "demo-adobe-sre-team-cpu-policy"
-    autoscaling_group_name        = "${aws_autoscaling_group.demo-adobe-sre-team-autoscaling.name}"
+resource "aws_autoscaling_policy" "demo-medal-cpu-policy" {
+    name                          = "demo-medal-cpu-policy"
+    autoscaling_group_name        = "${aws_autoscaling_group.demo-medal-autoscaling.name}"
     adjustment_type               = "ChangeInCapacity"
     scaling_adjustment            = "1"
     cooldown                      = "300"
@@ -8,8 +8,8 @@ resource "aws_autoscaling_policy" "demo-adobe-sre-team-cpu-policy" {
 }
 
 
-resource "aws_cloudwatch_metric_alarm" "demo-adobe-sre-team-cpu-alarm" {
-    alarm_name                    = "demo-adobe-sre-team-cpu-alarm"
+resource "aws_cloudwatch_metric_alarm" "demo-medal-cpu-alarm" {
+    alarm_name                    = "demo-medal-cpu-alarm"
     alarm_description             = "This metric monitor ec2 cpu utilization for Adobe SRE Team manages"
     comparison_operator           = "GreaterThanOrEqualToThreshold"
     evaluation_periods            = "2"
@@ -20,26 +20,26 @@ resource "aws_cloudwatch_metric_alarm" "demo-adobe-sre-team-cpu-alarm" {
     threshold                     = "30"
 
     dimensions = {
-      "AutoScalingGroupName"      = "${aws_autoscaling_group.demo-adobe-sre-team-autoscaling.name}"
+      "AutoScalingGroupName"      = "${aws_autoscaling_group.demo-medal-autoscaling.name}"
     }
 
     actions_enabled               = true
-    alarm_actions                 = ["${aws_autoscaling_policy.demo-adobe-sre-team-cpu-policy.arn}"]
+    alarm_actions                 = ["${aws_autoscaling_policy.demo-medal-cpu-policy.arn}"]
 }
 
 
 # Sclaing down alarm policy
-resource "aws_autoscaling_policy" "demo-adobe-sre-team-cpu-policy-scaledown" {
-    name                          = "demo-adobe-sre-team-cpu-policy-scaledown"
-    autoscaling_group_name        = "${aws_autoscaling_group.demo-adobe-sre-team-autoscaling.name}"
+resource "aws_autoscaling_policy" "demo-medal-cpu-policy-scaledown" {
+    name                          = "demo-medal-cpu-policy-scaledown"
+    autoscaling_group_name        = "${aws_autoscaling_group.demo-medal-autoscaling.name}"
     adjustment_type               = "ChangeInCapacity"
     scaling_adjustment            = "-1"
     cooldown                      = "300"
     policy_type                   = "SimpleScaling"
 }
 
-resource "aws_cloudwatch_metric_alarm" "demo-adobe-sre-team-cpu-alarm-scaledown" {
-    alarm_name                    = "demo-adobe-sre-team-cpu-alarm"
+resource "aws_cloudwatch_metric_alarm" "demo-medal-cpu-alarm-scaledown" {
+    alarm_name                    = "demo-medal-cpu-alarm"
     alarm_description             = "This metric monitor ec2 cpu utilization policy for scaling down managed by Adobe SRE Team manages"
     comparison_operator           = "LessThanOrEqualToThreshold"
     evaluation_periods            = "2"
@@ -50,10 +50,10 @@ resource "aws_cloudwatch_metric_alarm" "demo-adobe-sre-team-cpu-alarm-scaledown"
     threshold                     = "5"
 
     dimensions = {
-      "AutoScalingGroupName"      = "${aws_autoscaling_group.demo-adobe-sre-team-autoscaling.name}"
+      "AutoScalingGroupName"      = "${aws_autoscaling_group.demo-medal-autoscaling.name}"
     }
 
 
     actions_enabled               = true
-    alarm_actions                 = ["${aws_autoscaling_policy.demo-adobe-sre-team-cpu-policy.arn}"]
+    alarm_actions                 = ["${aws_autoscaling_policy.demo-medal-cpu-policy.arn}"]
 }
