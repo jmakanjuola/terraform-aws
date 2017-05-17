@@ -3,7 +3,7 @@ provider "cloudinit" {}
 data "template_file" "jenkins-init" {
   template = "${file("scripts/jenkins-init.sh")}"
   vars {
-    DEVICE = "${var.INSTANCE_DEVICE_NAME}"
+    DEVICE = "${var.instance_device_name}"
     JENKINS_VERSION = "${var.JENKINS_VERSION}"
   }
 }
