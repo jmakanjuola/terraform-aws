@@ -28,3 +28,7 @@ variable "JENKINS_VERSION" {
 variable "app_instance_count" {
   default = "0"
 }
+
+variable "app_instance_ami" {
+  default = "t2.micro"
+}

@@ -34,7 +34,7 @@ resource "aws_volume_attachment" "jenkins-data-attachment" {
   instance_id = "${aws_instance.jenkins-instance.id}"
 }
 
-resource "aws_instance" "app-instance" {
+resource "aws_instance" "medal-app-test" {
   count = "${var.app_instance_count}"
   ami = "${var.app_instance_ami}"
   instance_type = "t2.micro"
