@@ -95,8 +95,6 @@ resource "aws_route_table" "demo-medal-pub" {
 
 }
 
-}
-
 # route associations public
 resource "aws_route_table_association" "demo-medal-pub-1-a" {
     subnet_id = "${aws_subnet.demo-medal-pub-1.id}"
