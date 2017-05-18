@@ -12,9 +12,9 @@ resource "aws_autoscaling_group" "demo-medal-autoscaling" {
   launch_configuration        = "${aws_launch_configuration.demo-medal-asg-config.name}"
   min_size                    = 1
   max_size                    = 2
-  health_check_grace_period   = 300
-  health_check_type           = "EC2"
-  force_delete                = true
+  health_check_grace_period = 300
+  health_check_type = "EC2"
+  force_delete = true
 
   tag {
     key                       = "Name"
