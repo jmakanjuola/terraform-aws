@@ -1,4 +1,3 @@
-
 resource "aws_security_group" "demo-medal-instance" {
   vpc_id = "${aws_vpc.demo-medal.id}"
   name = "demo-medal-elb-sg"
@@ -25,6 +24,7 @@ resource "aws_security_group" "demo-medal-instance" {
    protocol = "tcp"
    security_groups = ["${aws_security_group.demo-medal-elb-sg.id}"]
  }
+  
  tags {
    Name = "demo-medal-elb-instance"
   }
