@@ -1,6 +1,6 @@
-resource "aws_security_group" "demo-adobe-sre-team-pub-sg" {
-  vpc_id = "${aws_vpc.demo-adobe-sre-team.id}"
-  name = "demo-adobe-sre-team-pub-sg"
+resource "aws_security_group" "demo-medal-pub-sg" {
+  vpc_id = "${aws_vpc.demo-medal.id}"
+  name = "demo-medal-pub-sg"
   description = "Allows ssh ingress & egress traffic"
   ingress {
     from_port = 22
@@ -16,6 +16,6 @@ resource "aws_security_group" "demo-adobe-sre-team-pub-sg" {
 }
 
 tags {
-  Name = "demo-adobe-sre-team-sg"
+  Name = "demo-medal-sg"
  }
 }
