@@ -1,5 +1,7 @@
-resource "aws_security_group" "demo-abra-test" {
-  vpc_id = "${aws_vpc.demo-abra.id}"
+
+resource "aws_security_group" "demo-medal-test" {
+  vpc_id = "${aws_vpc.demo-medal.id}"
+
   name = "demo-hearflow-pub-sg"
   description = "Allows ssh ingress & egress traffic"
   ingress {
@@ -15,19 +17,22 @@ resource "aws_security_group" "demo-abra-test" {
     cidr_blocks = ["0.0.0.0/0"]
 }
   tags {
-    Name = "demo-abra-test"
+
+    Name = "demo-medal-test"
+
  }
 }
 
 resource "aws_security_group""mysqldb-sg" {
-  vpc_id = "${aws_vpc.demo-abra.id}"
+  vpc_id = "${aws_vpc.demo-medal.id}"
   name = "mysqldb-sg"
   description = "mysqldb access"
   ingress {
     from_port = 3306
     to_port = 3306
     protocol = "tcp"
-    security_groups = ["${aws_security_group.demo-abra-test.id}"]
+    security_groups = ["${aws_security_group.demo-medal-test.id}"]
+
 
 }
  egress {
@@ -39,6 +44,6 @@ resource "aws_security_group""mysqldb-sg" {
 }
 
  tags {
-   Name = "mysqldb-sg"   
+   Name = "mysqldb-sg"
  }
 }

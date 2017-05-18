@@ -1,4 +1,3 @@
-# Internet VPC
 resource "aws_vpc" "demo-adobe-sre-team" {
     cidr_block = "10.0.0.0/16"
     instance_tenancy = "default"
@@ -20,9 +19,7 @@ resource "aws_subnet" "demo-adobe-sre-team-pub-1" {
     tags {
         Name = "demo-adobe-sre-team-pub-1"
     }
-
-  }
-
+}
 resource "aws_subnet" "demo-adobe-sre-team-pub-2" {
     vpc_id = "${aws_vpc.demo-adobe-sre-team.id}"
     cidr_block = "10.0.2.0/24"
@@ -33,7 +30,6 @@ resource "aws_subnet" "demo-adobe-sre-team-pub-2" {
         Name = "demo-adobe-sre-team-pub-2"
     }
 }
-
 resource "aws_subnet" "demo-adobe-sre-team-pub-3" {
     vpc_id = "${aws_vpc.demo-adobe-sre-team.id}"
     cidr_block = "10.0.3.0/24"
@@ -44,7 +40,6 @@ resource "aws_subnet" "demo-adobe-sre-team-pub-3" {
         Name = "demo-adobe-sre-team-pub-3"
     }
 }
-
 resource "aws_subnet" "demo-adobe-sre-team-priv-1" {
     vpc_id = "${aws_vpc.demo-adobe-sre-team.id}"
     cidr_block = "10.0.4.0/24"
@@ -55,7 +50,6 @@ resource "aws_subnet" "demo-adobe-sre-team-priv-1" {
         Name = "demo-adobe-sre-team-priv-1"
     }
 }
-
 resource "aws_subnet" "demo-adobe-sre-team-priv-2" {
     vpc_id = "${aws_vpc.demo-adobe-sre-team.id}"
     cidr_block = "10.0.5.0/24"
@@ -66,7 +60,6 @@ resource "aws_subnet" "demo-adobe-sre-team-priv-2" {
         Name = "demo-adobe-sre-team-priv-2"
     }
 }
-
 resource "aws_subnet" "demo-adobe-sre-team-priv-3" {
     vpc_id = "${aws_vpc.demo-adobe-sre-team.id}"
     cidr_block = "10.0.6.0/24"
@@ -78,7 +71,7 @@ resource "aws_subnet" "demo-adobe-sre-team-priv-3" {
     }
 }
 
-  # Internet GW
+# Internet GW
 resource "aws_internet_gateway" "demo-adobe-sre-team-gw" {
     vpc_id = "${aws_vpc.demo-adobe-sre-team.id}"
 
@@ -87,7 +80,7 @@ resource "aws_internet_gateway" "demo-adobe-sre-team-gw" {
     }
 }
 
-  # route tables
+# route tables
 resource "aws_route_table" "demo-adobe-sre-team-pub" {
     vpc_id = "${aws_vpc.demo-adobe-sre-team.id}"
     route {
@@ -100,7 +93,7 @@ resource "aws_route_table" "demo-adobe-sre-team-pub" {
     }
 }
 
-  # route associations public
+# route associations public
 resource "aws_route_table_association" "demo-adobe-sre-team-pub-1-a" {
     subnet_id = "${aws_subnet.demo-adobe-sre-team-pub-1.id}"
     route_table_id = "${aws_route_table.demo-adobe-sre-team-pub.id}"
