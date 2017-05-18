@@ -91,13 +91,12 @@ resource "aws_route_table" "demo-medal-pub" {
     tags {
         Name = "demo-medal-pub-1"
     }
-<<<<<<< HEAD
+
 
 }
-=======
+
 }
 
->>>>>>> packer
 # route associations public
 resource "aws_route_table_association" "demo-medal-pub-1-a" {
     subnet_id = "${aws_subnet.demo-medal-pub-1.id}"
