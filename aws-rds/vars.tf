@@ -2,9 +2,10 @@ variable "aws_region" {}
 variable "aws_access_key_id" {}
 variable "aws_secret_key_id" {}
 variable "db_instance_class" {}
-variable "demo-adobe-sre-team-dbname" {}
-variable "demo-adobe-sre-team-dbuser" {}
-variable "demo-adobe-sre-team-dbpassword" {}
+variable "demo-medal-dbname" {}
+variable "demo-medal-dbuser" {}
+variable "demo-medal-dbpassword" {}
+
 
 variable "path_to_priv_key" {
   default = "jubkey"
@@ -20,4 +21,3 @@ variable "amis" {
     ap-northeast-1 = "ami-afb09dc8"
  }
 }
-variable "rds_password" {}
