@@ -1,8 +1,8 @@
-resource "aws_instance" "test" {
+resource "aws_instance" "medal-demo" {
   ami = "${lookup(var.amis, var.aws_region)}"
   instance_type = "t2.micro"
 tags {
-  Name = "test"
+  Name = "medal-demo"
  }
 
 subnet_id = "${aws_subnet.demo-medal-pub-1.id}"
