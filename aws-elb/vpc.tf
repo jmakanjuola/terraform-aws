@@ -91,7 +91,7 @@ resource "aws_route_table" "demo-medal-pub" {
     tags {
         Name = "demo-medal-pub-1"
     }
- }
+}
 
 # route associations public
 resource "aws_route_table_association" "demo-medal-pub-1-a" {
