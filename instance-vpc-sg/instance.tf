@@ -1,7 +1,6 @@
 resource "aws_instance" "test" {
   ami = "${lookup(var.amis, var.aws_region)}"
   instance_type = "t2.micro"
-  count = 2
 tags {
   Name = "test"
  }
