@@ -1,3 +1,4 @@
+
 resource "aws_instance" "demo-medal-test" {
    ami = "${lookup(var.amis, var.aws_region)}"
    instance_type = "t2.micro"

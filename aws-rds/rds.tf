@@ -1,7 +1,9 @@
+
  resource "aws_db_subnet_group" "demo-medal-mysql-subnet" {
    name = "demo-medal-mysql-subnet"
    description = "Mysql database subnet group"
    subnet_ids = ["${aws_subnet.demo-medal-priv-1.id}","${aws_subnet.demo-medal-priv-2.id}"]
+
 }
 
 resource "aws_db_parameter_group" "mysqldb-parameters" {
@@ -39,5 +41,6 @@ resource "aws_db_instance" "mysqldb" {
   storage_type            = "gp2"
   backup_retention_period = 30    # backups during period
   availability_zone       = "${aws_subnet.demo-medal-priv-1.availability_zone}"   # prefered AZ
+
 
 }

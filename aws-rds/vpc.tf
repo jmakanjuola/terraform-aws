@@ -1,3 +1,4 @@
+
 resource "aws_vpc" "demo-medal" {
     cidr_block = "10.0.0.0/16"
     instance_tenancy = "default"
@@ -5,11 +6,14 @@ resource "aws_vpc" "demo-medal" {
     enable_dns_hostnames = "true"
     enable_classiclink = "false"
     tags {
+
         Name = "demo-medal"
+
     }
 }
 
 # Subnets
+
 resource "aws_subnet" "demo-medal-pub-1" {
     vpc_id = "${aws_vpc.demo-medal.id}"
     cidr_block = "10.0.1.0/24"
@@ -17,6 +21,7 @@ resource "aws_subnet" "demo-medal-pub-1" {
     availability_zone = "us-west-2a"
 
     tags {
+
         Name = "demo-medal-pub-1"
     }
 }
@@ -27,6 +32,7 @@ resource "aws_subnet" "demo-medal-pub-2" {
     availability_zone = "us-west-2b"
 
     tags {
+
         Name = "demo-medal-pub-2"
     }
 }
@@ -37,6 +43,7 @@ resource "aws_subnet" "demo-medal-pub-3" {
     availability_zone = "us-west-2c"
 
     tags {
+
         Name = "demo-medal-pub-3"
     }
 }
@@ -47,6 +54,7 @@ resource "aws_subnet" "demo-medal-priv-1" {
     availability_zone = "us-west-2a"
 
     tags {
+
         Name = "demo-medal-priv-1"
     }
 }
@@ -57,6 +65,7 @@ resource "aws_subnet" "demo-medal-priv-2" {
     availability_zone = "us-west-2b"
 
     tags {
+
         Name = "demo-medal-priv-2"
     }
 }
@@ -67,20 +76,25 @@ resource "aws_subnet" "demo-medal-priv-3" {
     availability_zone = "us-west-2c"
 
     tags {
+
         Name = "demo-medal-priv-3"
+
     }
 }
 
 # Internet GW
+
 resource "aws_internet_gateway" "demo-medal-gw" {
     vpc_id = "${aws_vpc.demo-medal.id}"
 
     tags {
         Name = "demo-medal-gw"
+
     }
 }
 
 # route tables
+
 resource "aws_route_table" "demo-medal-pub" {
     vpc_id = "${aws_vpc.demo-medal.id}"
     route {
@@ -94,6 +108,7 @@ resource "aws_route_table" "demo-medal-pub" {
 }
 
 # route associations public
+
 resource "aws_route_table_association" "demo-medal-pub-1-a" {
     subnet_id = "${aws_subnet.demo-medal-pub-1.id}"
     route_table_id = "${aws_route_table.demo-medal-pub.id}"

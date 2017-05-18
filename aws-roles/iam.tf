@@ -1,5 +1,5 @@
-resource "aws_iam_role" "demo-abra-s3-bucket-role" {
-    name = "demo-abra-s3-bucket-role"
+resource "aws_iam_role" "demo-adobe-sre-team-s3-bucket-role" {
+    name = "demo-adobe-sre-team-s3-bucket-role"
     assume_role_policy =<<EOF
 {
   "Version": "2012-10-17",
@@ -17,14 +17,14 @@ resource "aws_iam_role" "demo-abra-s3-bucket-role" {
 EOF
 }
 
-resource "aws_iam_instance_profile" "demo-abra-s3-bucket-role-instanceprofile" {
-    name = "demo-abra-s3-bucket-role"
-    roles = ["${aws_iam_role.demo-abra-s3-bucket-role.name}"]
+resource "aws_iam_instance_profile" "demo-adobe-sre-team-s3-bucket-role-instanceprofile" {
+    name = "demo-adobe-sre-team-s3-bucket-role"
+    roles = ["${aws_iam_role.demo-adobe-sre-team-s3-bucket-role.name}"]
 }
 
-resource "aws_iam_role_policy" "demo-abra-s3-bucket-role-policy" {
-    name = "demo-abra-s3-bucket-role-policy"
-    role = "${aws_iam_role.demo-abra-s3-bucket-role.id}"
+resource "aws_iam_role_policy" "demo-adobe-sre-team-s3-bucket-role-policy" {
+    name = "demo-adobe-sre-team-s3-bucket-role-policy"
+    role = "${aws_iam_role.demo-adobe-sre-team-s3-bucket-role.id}"
     policy = <<EOF
 {
     "Version": "2012-10-17",
