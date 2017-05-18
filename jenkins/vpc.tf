@@ -1,3 +1,4 @@
+# Internet VPC
 resource "aws_vpc" "demo-medal" {
     cidr_block = "10.0.0.0/16"
     instance_tenancy = "default"
@@ -8,6 +9,7 @@ resource "aws_vpc" "demo-medal" {
         Name = "demo-medal"
     }
 }
+
 
 # Subnets
 resource "aws_subnet" "demo-medal-pub-1" {
@@ -76,12 +78,12 @@ resource "aws_internet_gateway" "demo-medal-gw" {
     vpc_id = "${aws_vpc.demo-medal.id}"
 
     tags {
-        Name = "demo-medal-gw"
+        Name = "demo-medal"
     }
 }
 
 # route tables
-resource "aws_route_table" "demo-medal-pub" {
+resource "aws_route_table" "demo-medal" {
     vpc_id = "${aws_vpc.demo-medal.id}"
     route {
         cidr_block = "0.0.0.0/0"
@@ -96,13 +98,13 @@ resource "aws_route_table" "demo-medal-pub" {
 # route associations public
 resource "aws_route_table_association" "demo-medal-pub-1-a" {
     subnet_id = "${aws_subnet.demo-medal-pub-1.id}"
-    route_table_id = "${aws_route_table.demo-medal-pub.id}"
+    route_table_id = "${aws_route_table.demo-medal.id}"
 }
 resource "aws_route_table_association" "demo-medal-pub-2-a" {
     subnet_id = "${aws_subnet.demo-medal-pub-2.id}"
-    route_table_id = "${aws_route_table.demo-medal-pub.id}"
+    route_table_id = "${aws_route_table.demo-medal.id}"
 }
 resource "aws_route_table_association" "demo-medal-pub-3-a" {
     subnet_id = "${aws_subnet.demo-medal-pub-3.id}"
-    route_table_id = "${aws_route_table.demo-medal-pub.id}"
+    route_table_id = "${aws_route_table.demo-medal.id}"
 }
