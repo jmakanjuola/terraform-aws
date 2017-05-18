@@ -1,16 +1,4 @@
 
-resource "aws_security_group" "demo-medal-elb-instance" {
-  vpc_id = "${aws_vpc.demo-medal.id}"
-  name = "demo-medal-elb-instance"
-  description = "Allows ssh ingress & egress traffic"
-  egress {
-    from_port = 0
-    to_port = 0
-    protocol = "-1"
-    cidr_blocks = ["0.0.0.0/0"]
-}
-
-
 resource "aws_security_group" "demo-medal-instance" {
   vpc_id = "${aws_vpc.demo-medal.id}"
   name = "demo-medal-elb-sg"
