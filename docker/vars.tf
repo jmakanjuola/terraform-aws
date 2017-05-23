@@ -18,8 +18,8 @@ variable "path_to_pub_key" {
 variable "ecs_amis" {
   type = "map"
   default = {
-    eu-west-1 = "ami-a8d2d7ce"
-    us-west-2 = "ami-fa27b39a"
-    ap-northeast-1 = "ami-afb09dc8"
+    us-east-1 = "ami-1924770e"
+    us-west-2 = "ami-56ed4936"
+    eu-west-1 = "ami-c8337dbb"
   }
 }
