@@ -10,8 +10,8 @@ resource "aws_iam_policy_attachment" "mylab-attach-admin-access" {
 
 # Users with Admin access to mylab AWS account
 
- resource "aws_iam_user" "jubilee" {
-   name = "Olaoluwa"
+ resource "aws_iam_user" "Jubilee" {
+   name = "Jubilee"
  }
 
  resource "aws_iam_user" "Peter" {
