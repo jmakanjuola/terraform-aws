@@ -2,9 +2,9 @@ variable "aws_region" {}
 variable "aws_access_key_id" {}
 variable "aws_secret_key_id" {}
 variable "db_instance_class" {}
-variable "demo-medal-dbname" {}
-variable "demo-medal-dbuser" {}
-variable "demo-medal-dbpassword" {}
+variable "demo-mylab-dbname" {}
+variable "demo-mylab-dbuser" {}
+variable "demo-mylab-dbpassword" {}
 
 
 variable "path_to_priv_key" {
