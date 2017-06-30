@@ -1,3 +1,3 @@
 output "ELB" {
-  value = "${aws_elb.demo-medal-elb.dns_name}"
+  value = "${aws_elb.demo-mylab-elb.dns_name}"
 }
