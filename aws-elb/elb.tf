@@ -1,7 +1,7 @@
-resource "aws_elb" "demo-medal-elb" {
-    name = "demo-medal-elb"
-		subnets = ["${aws_subnet.demo-medal-pub-1.id}", "${aws_subnet.demo-medal-pub-2.id}"]
-		security_groups = ["${aws_security_group.demo-medal-elb-sg.id }"]
+resource "aws_elb" "demo-mylab-elb" {
+    name = "demo-mylab-elb"
+		subnets = ["${aws_subnet.demo-mylab-pub-1.id}", "${aws_subnet.demo-mylab-pub-2.id}"]
+		security_groups = ["${aws_security_group.demo-mylab-elb-sg.id }"]
 	listener {
 	  instance_port = 80
 	  instance_protocol = "http"
@@ -20,6 +20,6 @@ resource "aws_elb" "demo-medal-elb" {
 	connection_draining = true
 	connection_draining_timeout =400
 	tags{
-		Name = "demo-medal-elb"
+		Name = "demo-mylab-elb"
 	}
 }

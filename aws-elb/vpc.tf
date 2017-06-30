@@ -91,11 +91,7 @@ resource "aws_route_table" "demo-mylab-pub" {
     tags {
         Name = "demo-mylab-pub-1"
     }
-<<<<<<< HEAD
 
-
-=======
->>>>>>> 5c59f59d0383934a6ad2215909c08e891ef651b4
 }
 
 # route associations public
