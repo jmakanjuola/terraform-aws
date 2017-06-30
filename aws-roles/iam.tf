@@ -19,7 +19,7 @@ EOF
 
 resource "aws_iam_instance_profile" "demo-mylab-s3-bucket-role-instanceprofile" {
     name = "demo-mylab-s3-bucket-role"
-    role = "${aws_iam_role.demo-mylab-s3-bucket-role.name}"
+    roles = ["${aws_iam_role.demo-mylab-s3-bucket-role.name}"]
 }
 
 resource "aws_iam_role_policy" "demo-mylab-s3-bucket-role-policy" {
