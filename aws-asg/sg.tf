@@ -1,6 +1,6 @@
-resource "aws_security_group" "demo-medal-instance" {
-  vpc_id = "${aws_vpc.demo-medal.id}"
-  name = "demo-medal-pub-sg"
+resource "aws_security_group" "demo-mylab-instance" {
+  vpc_id = "${aws_vpc.demo-mylab.id}"
+  name = "demo-mylab-pub-sg"
   description = "Allows ssh ingress & egress traffic"
   ingress {
     from_port = 22
@@ -15,6 +15,6 @@ resource "aws_security_group" "demo-medal-instance" {
     cidr_blocks = ["0.0.0.0/0"]
 }
   tags {
-    Name = "demo-medal-test"
+    Name = "demo-mylab-test"
  }
 }
