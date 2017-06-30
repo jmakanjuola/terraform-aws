@@ -1,5 +1,5 @@
-resource "aws_security_group" "medal-ecs-sg" {
-    vpc_id ="${aws_vpc.demo-medal.id}"
+resource "aws_security_group" "mylab-ecs-sg" {
+    vpc_id ="${aws_vpc.demo-mylab.id}"
     name = "ecs"
     description = "ecs security group"
     egress {
@@ -13,7 +13,7 @@ resource "aws_security_group" "medal-ecs-sg" {
       from_port = 3000
       to_port = 3000
       protocol = "tcp"
-      security_groups = ["${aws_security_group.medal-app-elb-sg.id}"]
+      security_groups = ["${aws_security_group.mylab-app-elb-sg.id}"]
   }
 
   ingress {
@@ -27,9 +27,9 @@ resource "aws_security_group" "medal-ecs-sg" {
   }
 }
 
-resource "aws_security_group" "medal-app-elb-sg" {
-  vpc_id = "${aws_vpc.demo-medal.id}"
-  name = "medal-app-elb"
+resource "aws_security_group" "mylab-app-elb-sg" {
+  vpc_id = "${aws_vpc.demo-mylab.id}"
+  name = "mylab-app-elb"
   description = "ecs security group"
   egress {
     from_port = 0
@@ -44,6 +44,6 @@ resource "aws_security_group" "medal-app-elb-sg" {
       cidr_blocks = ["0.0.0.0/0"]
   }
   tags {
-    Name = "medal-app-elb"
+    Name = "mylab-app-elb"
   }
 }

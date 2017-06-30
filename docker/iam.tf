@@ -1,6 +1,6 @@
 # ecs ec2 role
-resource "aws_iam_role" "medal-ecs-ec2-role" {
-    name = "medal-ecs-ec2-role"
+resource "aws_iam_role" "mylab-ecs-ec2-role" {
+    name = "mylab-ecs-ec2-role"
     assume_role_policy = <<EOF
 {
   "Version": "2012-10-17",
@@ -17,13 +17,13 @@ resource "aws_iam_role" "medal-ecs-ec2-role" {
 }
 EOF
 }
-resource "aws_iam_instance_profile" "medal-ecs-ec2-role" {
-    name = "medal-ecs-ec2-role"
-    roles = ["${aws_iam_role.medal-ecs-ec2-role.name}"]
+resource "aws_iam_instance_profile" "mylab-ecs-ec2-role" {
+    name = "mylab-ecs-ec2-role"
+    roles = ["${aws_iam_role.mylab-ecs-ec2-role.name}"]
 }
 
-resource "aws_iam_role" "medal-ecs-consul-server-role" {
-    name = "medal-ecs-consul-server-role"
+resource "aws_iam_role" "mylab-ecs-consul-server-role" {
+    name = "mylab-ecs-consul-server-role"
     assume_role_policy = <<EOF
 {
   "Version": "2012-10-17",
@@ -41,9 +41,9 @@ resource "aws_iam_role" "medal-ecs-consul-server-role" {
 EOF
 }
 
-resource "aws_iam_role_policy" "medal-ecs-ec2-role-policy" {
-    name = "medal-ecs-ec2-role-policy"
-    role = "${aws_iam_role.medal-ecs-ec2-role.id}"
+resource "aws_iam_role_policy" "mylab-ecs-ec2-role-policy" {
+    name = "mylab-ecs-ec2-role-policy"
+    role = "${aws_iam_role.mylab-ecs-ec2-role.id}"
     policy = <<EOF
 {
     "Version": "2012-10-17",
@@ -86,8 +86,8 @@ EOF
 }
 
 # ecs service role
-resource "aws_iam_role" "medal-ecs-service-role" {
-    name = "medal-ecs-service-role"
+resource "aws_iam_role" "mylab-ecs-service-role" {
+    name = "mylab-ecs-service-role"
     assume_role_policy = <<EOF
 {
   "Version": "2012-10-17",
@@ -105,8 +105,8 @@ resource "aws_iam_role" "medal-ecs-service-role" {
 EOF
 }
 
-resource "aws_iam_policy_attachment" "medal-ecs-service-attach" {
-    name = "medal-ecs-service-attach"
-    roles = ["${aws_iam_role.medal-ecs-service-role.name}"]
+resource "aws_iam_policy_attachment" "mylab-ecs-service-attach" {
+    name = "mylab-ecs-service-attach"
+    roles = ["${aws_iam_role.mylab-ecs-service-role.name}"]
     policy_arn = "arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceRole"
 }

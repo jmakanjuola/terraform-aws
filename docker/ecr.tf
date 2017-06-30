@@ -1,3 +1,3 @@
-resource "aws_ecr_repository" "medal-app" {
-  name = "medal-app"
+resource "aws_ecr_repository" "mylab-app" {
+  name = "mylab-app"
 }
