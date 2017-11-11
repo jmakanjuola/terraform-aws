@@ -28,7 +28,7 @@ resource "aws_cloudwatch_metric_alarm" "demo-mylab-cpu-alarm" {
 }
 
 
-# Sclaing down alarm policy
+# Scaling down alarm policy
 resource "aws_autoscaling_policy" "demo-mylab-cpu-policy-scaledown" {
     name                   = "demo-mylab-cpu-policy-scaledown"
     autoscaling_group_name = "${aws_autoscaling_group.demo-mylab-autoscaling.name}"
