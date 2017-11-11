@@ -1,6 +1,6 @@
-resource "aws_security_group" "demo-medal-pub-sg" {
-  vpc_id = "${aws_vpc.demo-medal.id}"
-  name = "demo-medal-pub-sg"
+resource "aws_security_group" "demo-mylab-pub-sg" {
+  vpc_id = "${aws_vpc.demo-mylab.id}"
+  name = "demo-mylab-pub-sg"
   description = "Allows ssh ingress & egress traffic"
   ingress {
     from_port = 22
@@ -16,6 +16,6 @@ resource "aws_security_group" "demo-medal-pub-sg" {
 }
 
 tags {
-  Name = "demo-medal-sg"
+  Name = "demo-mylab-sg"
  }
 }
