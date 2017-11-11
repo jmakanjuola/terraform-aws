@@ -1,6 +1,4 @@
 
 output "ip" {
-  value = "${aws_instance.medal-demo.public_ip}"
+  value = "${aws_instance.mylab-demo.public_ip}"
 }
-
-
