@@ -31,3 +31,4 @@ resource "aws_route53_record" "mail1-record" {
 output "ns-servers" {
    value = "${aws_route53_zone.precisesteps.name_servers}"
 }
+
