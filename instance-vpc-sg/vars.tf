@@ -1,7 +1,7 @@
 #variable "localip" {}
 variable "aws_region" {}
-variable "aws_access_key_id" {}
-variable "aws_secret_key_id" {}
+variable "aws_access_key" {}
+variable "aws_secret_key" {}
 
 variable "path_to_priv_key" {
   default = "jubkey"
@@ -20,4 +20,3 @@ variable "amis" {
 variable "aws_key_pair" {
   default = "jubkey"
 }
-
