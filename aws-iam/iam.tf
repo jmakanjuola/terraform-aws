@@ -10,12 +10,12 @@ resource "aws_iam_policy_attachment" "mylab-attach-admin-access" {
 
 # Users with Admin access to mylab AWS account
 
- resource "aws_iam_user" "Jubilee" {
-   name = "Jubilee"
+ resource "aws_iam_user" "kops" {
+   name = "kops"
  }
 
- resource "aws_iam_user" "Peter" {
-   name = "Peter"
+ resource "aws_iam_user" "mylab" {
+   name = "mylab"
 }
 
  resource "aws_iam_user" "John" {
@@ -25,7 +25,7 @@ resource "aws_iam_policy_attachment" "mylab-attach-admin-access" {
 resource "aws_iam_group_membership" "mylab-admin-team" {
    name = "mylab-admin-team"
    users = [
-     "${aws_iam_user.Jubilee.name}",
+     "${aws_iam_user.kops.name}",
      "${aws_iam_user.Peter.name}",
      "${aws_iam_user.John.name}",
    ]
@@ -65,24 +65,4 @@ resource "aws_iam_group_membership" "mylab-developers-team" {
      "${aws_iam_user.Tim.name}",
    ]
 group = "${aws_iam_group.mylab-developers.name}"
-}
-
-resource "aws_iam_role" "lambda-mylab" {
-  name = "lambda-mylab"
-  assume_role_policy =<<EOF
-
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Action": "sts:AssumeRole",
-      "Principal": {
-        "Service": "ec2.amazonaws.com"
-      },
-      "Effect": "Allow",
-      "Sid": ""
-    }
-  ]
-}
-EOF
 }
